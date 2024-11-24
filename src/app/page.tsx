@@ -7,5 +7,3 @@ export default function Home() {
     </div>
   );
 }
-
-//cdb4db-ffc8dd-ffafcc-bde0fe-a2d2ff

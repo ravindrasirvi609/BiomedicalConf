@@ -75,11 +75,11 @@ const HeroSection = () => {
           >
             <div className="flex items-center space-x-2">
               <Calendar className="w-5 h-5 text-[#9C6FDE]" />
-              <span>October 15-17, 2024</span>
+              <span>March 7-8, 2025</span>
             </div>
             <div className="flex items-center space-x-2">
               <MapPin className="w-5 h-5 text-[#FF6B9E]" />
-              <span>San Francisco, CA</span>
+              <span>Ooty, Tamil Nadu</span>
             </div>
           </div>
 

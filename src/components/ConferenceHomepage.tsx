@@ -4,6 +4,10 @@ import HeroSection from "./HeroSection";
 import KeyHighlights from "./KeyHighlights";
 import ConferenceThemes from "./ConferenceThemes";
 import CTA from "./CTA";
+import CallForPapers from "./CallForPapers";
+import SponsorsPartners from "./SponsorsPartners";
+import VenueInformation from "./VenueInformation";
+import ConferenceFooter from "./Footer";
 
 const ConferenceHomepage: React.FC = () => {
   return (
@@ -20,8 +24,16 @@ const ConferenceHomepage: React.FC = () => {
       {/* Conference Overview */}
       <ConferenceThemes />
 
-      {/* Footer */}
       <CTA />
+
+      <CallForPapers />
+
+      <SponsorsPartners />
+
+      {/* Footer */}
+      <VenueInformation />
+
+      <ConferenceFooter />
     </div>
   );
 };

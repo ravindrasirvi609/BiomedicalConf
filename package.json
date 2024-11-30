@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/axios": "^0.14.4",
     "axios": "^1.7.8",
-    "firebase": "^11.0.2",
+    "firebase": "^10.12.3",
     "googleapis": "^144.0.0",
     "lucide-react": "^0.460.0",
     "next": "15.0.3",
@@ -20,7 +20,6 @@
     "resend": "^4.0.1"
   },
   "devDependencies": {
-    "@types/firebase": "^3.2.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -28,6 +27,6 @@
     "eslint-config-next": "15.0.3",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5.7.2"
   }
 }

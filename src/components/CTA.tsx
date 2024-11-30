@@ -109,11 +109,8 @@ const CTA = () => {
         if (response.ok) {
           // Successful submission
           setIsSubmitted(true);
-
-          // Optional: Redirect to payment or confirmation page
           router.push("/confirmation");
         } else {
-          // Handle API errors
           alert(result.message || "Registration failed. Please try again.");
         }
       } catch (error) {

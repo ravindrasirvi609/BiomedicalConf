@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   ArrowRight,
   CheckCircle,
@@ -10,6 +11,7 @@ import {
 } from "lucide-react";
 
 const CTA = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -21,6 +23,7 @@ const CTA = () => {
     email: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = () => {
     const tempErrors = { name: "", mobile: "", email: "" };
@@ -85,26 +88,40 @@ const CTA = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // Validate form
     if (validateForm()) {
-      // In a real application, you would integrate with Razorpay here
-      // This is a placeholder for Razorpay integration
-      const handleRazorpayPayment = () => {
-        // Razorpay integration logic would go here
-        // This is where you'd typically:
-        // 1. Create an order on your backend
-        // 2. Initialize Razorpay checkout
-        // 3. Handle payment success/failure
-        console.log("Initiating Razorpay Payment", formData);
+      setIsSubmitting(true);
 
-        // Placeholder: Simulating successful submission
-        setIsSubmitted(true);
-      };
+      try {
+        const response = await fetch("/api/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
 
-      handleRazorpayPayment();
+        const result = await response.json();
+
+        if (response.ok) {
+          // Successful submission
+          setIsSubmitted(true);
+
+          // Optional: Redirect to payment or confirmation page
+          router.push("/confirmation");
+        } else {
+          // Handle API errors
+          alert(result.message || "Registration failed. Please try again.");
+        }
+      } catch (error) {
+        console.error("Submission error:", error);
+        alert("Network error. Please try again.");
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -213,12 +230,20 @@ const CTA = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-[#9C6FDE] text-white px-10 py-4 rounded-full 
-                    text-lg font-semibold hover:bg-[#7A50B3] transition duration-300 
-                    flex items-center justify-center space-x-3 group"
+                  disabled={isSubmitting}
+                  className={`w-full bg-[#9C6FDE] text-white px-10 py-4 rounded-full 
+                    text-lg font-semibold transition duration-300 
+                    flex items-center justify-center space-x-3 group
+                    ${
+                      isSubmitting
+                        ? "opacity-50 cursor-not-allowed"
+                        : "hover:bg-[#7A50B3]"
+                    }`}
                 >
-                  <span>Proceed to Payment</span>
-                  <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition" />
+                  {isSubmitting ? "Submitting..." : "Proceed to Payment"}
+                  {!isSubmitting && (
+                    <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition" />
+                  )}
                 </button>
               </form>
             ) : (

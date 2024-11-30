@@ -9,9 +9,13 @@ import {
   BookOpen,
   Lightbulb,
 } from "lucide-react";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import axios from "axios";
+import { storage } from "@/lib/firebase";
 
 const CallForPapers = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [paperDetails, setPaperDetails] = useState<{
     title: string;
     author: string;
@@ -38,24 +42,74 @@ const CallForPapers = () => {
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
-    setPaperDetails((prev) => ({
-      ...prev,
-      file: file,
-    }));
+
+    // Validate file type and size
+    if (file) {
+      const allowedTypes = [
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      ];
+      const maxSize = 5 * 1024 * 1024; // 5 MB
+
+      if (!allowedTypes.includes(file.type)) {
+        setError("Only .doc and .docx files are allowed");
+        return;
+      }
+
+      if (file.size > maxSize) {
+        setError("File size must be less than 5 MB");
+        return;
+      }
+
+      setError(null);
+      setPaperDetails((prev) => ({
+        ...prev,
+        file: file,
+      }));
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // In a real application, you would handle file submission here
-    setIsSubmitted(true);
+
+    // Validate all fields
+    if (!paperDetails.file) {
+      setError("Please upload a file");
+      return;
+    }
+
+    try {
+      // Upload file to Firebase Storage
+      const storageRef = ref(
+        storage,
+        `abstracts/${Date.now()}_${paperDetails.file.name}`
+      );
+      const snapshot = await uploadBytes(storageRef, paperDetails.file);
+      const downloadURL = await getDownloadURL(snapshot.ref);
+
+      // Prepare form data
+      const formData = {
+        ...paperDetails,
+        fileUrl: downloadURL,
+      };
+
+      // Send to server endpoint
+      const response = await axios.post("/api/abstractSubmit", formData);
+      console.log(response.data);
+
+      // Handle successful submission
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Submission error:", error);
+      setError("Failed to submit paper. Please try again.");
+    }
   };
 
   const importantDates = [
-    { date: "August 15, 2024", event: "Paper Submission Deadline" },
-    { date: "September 30, 2024", event: "Notification of Acceptance" },
-    { date: "October 15, 2024", event: "Camera-Ready Submissions" },
+    { date: "February 1, 2025", event: "Paper Submission Deadline" },
+    { date: "February 15, 2025", event: "Notification of Acceptance" },
+    { date: "February 28, 2025", event: "Camera-Ready Submissions" },
   ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#9C6FDE]/10 to-[#9C6FDE]/20 py-16 flex items-center justify-center">
       <div className="container mx-auto px-6">
@@ -193,6 +247,10 @@ const CallForPapers = () => {
                   <Upload className="mr-3" />
                   Submit Paper
                 </button>
+
+                {error && (
+                  <div className="mt-4 text-red-500 text-center">{error}</div>
+                )}
               </form>
             ) : (
               <div className="text-center space-y-6">

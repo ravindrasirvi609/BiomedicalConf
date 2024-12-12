@@ -18,13 +18,12 @@ const Header = () => {
 
   const navLinks = [
     {
-      href: "#about",
+      href: "#",
       label: "About",
       icon: BookOpen,
       subLinks: [
         { href: "obrf", label: "About OBRF" },
         { href: "organizing-committee", label: "About Organizing Committee" },
-        { href: "office-bearers", label: "OBRF Office Bearers" },
       ],
     },
     {

@@ -18,9 +18,14 @@ const Header = () => {
 
   const navLinks = [
     {
-      href: "about",
+      href: "#about",
       label: "About",
       icon: BookOpen,
+      subLinks: [
+        { href: "obrf", label: "About OBRF" },
+        { href: "organizing-committee", label: "About Organizing Committee" },
+        { href: "office-bearers", label: "OBRF Office Bearers" },
+      ],
     },
     {
       href: "#speakers",
@@ -63,16 +68,31 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-6 relative">
           {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="group flex items-center text-gray-600 hover:text-[#9C6FDE] transition-colors duration-300"
-            >
-              <link.icon className="mr-2 w-5 h-5 text-gray-400 group-hover:text-[#FF6B9E] transition-colors" />
-              {link.label}
-            </Link>
+            <div className="group" key={link.href}>
+              <Link
+                href={link.href}
+                className="flex items-center text-gray-600 hover:text-[#9C6FDE] transition-colors duration-300"
+              >
+                <link.icon className="mr-2 w-5 h-5 text-gray-400 group-hover:text-[#FF6B9E] transition-colors" />
+                {link.label}
+              </Link>
+              {/* Sub Navigation for About on hover */}
+              {link.subLinks && (
+                <div className="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded-md">
+                  {link.subLinks.map((subLink) => (
+                    <Link
+                      key={subLink.href}
+                      href={subLink.href}
+                      className="block px-4 py-2 text-gray-600 hover:text-[#9C6FDE] transition-colors"
+                    >
+                      {subLink.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
 
           <Link
@@ -98,15 +118,31 @@ const Header = () => {
         <div className="fixed inset-0 bg-white/95 z-40 md:hidden">
           <div className="container mx-auto px-4 py-8 space-y-6">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="py-3 border-b border-gray-200 text-xl flex items-center text-gray-700 hover:text-[#9C6FDE] transition-colors"
-              >
-                <link.icon className="mr-4 w-6 h-6 text-gray-400" />
-                {link.label}
-              </Link>
+              <div key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="py-3 border-b border-gray-200 text-xl flex items-center text-gray-700 hover:text-[#9C6FDE] transition-colors"
+                >
+                  <link.icon className="mr-4 w-6 h-6 text-gray-400" />
+                  {link.label}
+                </Link>
+                {/* Sub Navigation for About */}
+                {link.subLinks && (
+                  <div className="pl-6">
+                    {link.subLinks.map((subLink) => (
+                      <Link
+                        key={subLink.href}
+                        href={subLink.href}
+                        onClick={() => setIsOpen(false)}
+                        className="py-2 block text-gray-600 hover:text-[#9C6FDE] transition-colors"
+                      >
+                        {subLink.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
 
             <Link

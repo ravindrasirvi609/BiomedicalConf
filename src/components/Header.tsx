@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Clock, Users, BookOpen, ChevronRight } from "lucide-react";
+import { Menu, X, Clock, BookOpen, ChevronRight } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,11 +25,6 @@ const Header = () => {
         { href: "obrf", label: "About OBRF" },
         { href: "organizing-committee", label: "About Organizing Committee" },
       ],
-    },
-    {
-      href: "#speakers",
-      label: "Speakers",
-      icon: Users,
     },
     {
       href: "#schedule",

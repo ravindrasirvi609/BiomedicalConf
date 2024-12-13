@@ -6,6 +6,7 @@ import CTA from "./CTA";
 import CallForPapers from "./CallForPapers";
 import SponsorsPartners from "./SponsorsPartners";
 import VenueInformation from "./VenueInformation";
+import AboutConference from "./AboutConference";
 
 const ConferenceHomepage: React.FC = () => {
   return (
@@ -14,6 +15,8 @@ const ConferenceHomepage: React.FC = () => {
 
       {/* Hero Section */}
       <HeroSection />
+
+      <AboutConference />
 
       {/* Key Highlights */}
       <KeyHighlights />

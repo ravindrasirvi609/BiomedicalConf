@@ -18,7 +18,7 @@ const Header = () => {
 
   const navLinks = [
     {
-      href: "#",
+      href: "",
       label: "About",
       icon: BookOpen,
       subLinks: [

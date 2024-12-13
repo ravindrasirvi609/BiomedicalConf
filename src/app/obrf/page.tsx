@@ -42,24 +42,22 @@ const officeBearers = [
 
 const AboutOBRF = () => {
   return (
-    <div className="px-8 md:px-16 py-24 bg-gradient-to-r from-[#FF6B9E] to-[#9C6FDE] text-white">
-      <h1 className="text-4xl md:text-5xl font-black text-center mb-12 text-white">
-        About OBRF
-      </h1>
+    <div className="px-8 md:px-16 py-24 bg-gradient-to-r from-[#fbd0df] to-[#ddcafb] text-black">
+      <h1 className="text-5xl font-extrabold text-center mb-12">About OBRF</h1>
 
-      <div className="max-w-4xl mx-auto space-y-12">
+      <div className="max-w-5xl mx-auto space-y-12">
         <section>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white border-b-4 border-white pb-2">
+          <h2 className="text-4xl font-semibold mb-6 border-b-4 border-white pb-2">
             Mission
           </h2>
-          <p className="text-lg mb-4">
+          <p className="text-lg mb-4 leading-relaxed">
             Operant Biomedical Research Federation is a leading organization in
             the field, uniting a diverse community of Academicians, Researchers,
             Scientists, Clinicians, and Industry Professionals. Together, we
             collaborate on biomedical research to push the boundaries of
             knowledge and technology in healthcare.
           </p>
-          <p className="text-lg mb-4">
+          <p className="text-lg mb-4 leading-relaxed">
             Join us in our journey to shape the future of biomedicine. Together,
             we can unlock new frontiers, transform healthcare, and make a
             meaningful impact on human health and well-being.
@@ -71,10 +69,10 @@ const AboutOBRF = () => {
         </section>
 
         <section>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white border-b-4 border-white pb-2">
+          <h2 className="text-4xl font-semibold mb-6 border-b-4 border-white pb-2">
             Vision
           </h2>
-          <p className="text-lg">
+          <p className="text-lg leading-relaxed">
             At Operant Biomedical Research Federation, we envision a future
             where groundbreaking biomedical research and collaboration lead to
             transformative advances in healthcare, improve patient outcomes, and
@@ -83,7 +81,7 @@ const AboutOBRF = () => {
         </section>
 
         <section>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white border-b-4 border-white pb-2">
+          <h2 className="text-4xl font-semibold mb-6 border-b-4 border-white pb-2">
             Objectives
           </h2>
           <ul className="list-disc list-inside text-lg space-y-3">
@@ -132,7 +130,7 @@ const AboutOBRF = () => {
         </section>
 
         <section>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-white border-b-4 border-white pb-2">
+          <h2 className="text-4xl font-semibold mb-8 border-b-4 border-white pb-2">
             OBRF Office Bearers
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -148,11 +146,9 @@ const AboutOBRF = () => {
                   height={150}
                   className="mx-auto rounded-full mb-4 border-4 border-white"
                 />
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  {bearer.name}
-                </h3>
-                <p className="text-white/80">{bearer.position}</p>
-                <p className="text-white/80">
+                <h3 className="text-xl font-semibold mb-2">{bearer.name}</h3>
+                <p className="text-black">{bearer.position}</p>
+                <p className="text-black/80">
                   Operant Biomedical Research Federation
                 </p>
               </div>
@@ -162,11 +158,11 @@ const AboutOBRF = () => {
       </div>
 
       <footer className="text-center mt-16">
-        <p className="text-2xl md:text-3xl">
+        <p className="text-2xl">
           Visit us at:{" "}
           <a
             href="http://www.obrf.org.in"
-            className="text-white underline hover:text-white/80 transition-colors"
+            className="text-black underline hover:text-black/80 transition-colors"
           >
             www.obrf.org.in
           </a>

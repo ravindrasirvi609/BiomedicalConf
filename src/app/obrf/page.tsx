@@ -6,37 +6,37 @@ const officeBearers = [
   {
     name: "Dr. Sneha Ambwani",
     position: "President",
-    image: "/api/placeholder/150/150",
+    image: "/sneha.png",
   },
   {
     name: "Dr. J. S. Bhawalkar",
     position: "Vice President",
-    image: "/api/placeholder/150/150",
+    image: "/bhawalkar.png",
   },
   {
     name: "Dr. Vikram Choudhary",
     position: "Secretary",
-    image: "/api/placeholder/150/150",
+    image: "/097A3252.jpg",
   },
   {
     name: "Dr. Gopal Natesan",
     position: "Director, International Affairs",
-    image: "/api/placeholder/150/150",
+    image: "/gopal.jpeg",
   },
   {
     name: "Dr. Rimjhim Arora",
     position: "Treasurer",
-    image: "/api/placeholder/150/150",
+    image: "/Rimjhim.png",
   },
   {
     name: "Dr. R. Kalirajan",
     position: "CEC Member",
-    image: "/api/placeholder/150/150",
+    image: "/Kalirajan.jpg",
   },
   {
     name: "Dr. Anjali Sable",
     position: "CEC Member",
-    image: "/api/placeholder/150/150",
+    image: "/Anjali.png",
   },
 ];
 

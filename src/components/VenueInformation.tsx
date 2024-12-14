@@ -8,9 +8,9 @@ const VenueInformation = () => {
 
   const venueDetails = {
     venue: {
-      name: "Metropolitan Medical Conference Center",
-      address: "1234 Healthcare Boulevard, Medical District",
-      capacity: "1,500 attendees",
+      name: "Hotel Gem Park,Ooty",
+      address: "Sheddon Rd, Pudumund, Ooty, Tamil Nadu 643001",
+      capacity: "200 attendees",
       features: [
         "State-of-the-art conference halls",
         "Advanced medical technology integration",
@@ -22,14 +22,14 @@ const VenueInformation = () => {
     accommodation: {
       hotels: [
         {
-          name: "MedPro Wellness Hotel",
-          distance: "0.5 miles from venue",
+          name: "Hotel Gem Park,Ooty",
+          distance: "On-site",
           specialOffer: "10% discount for conference attendees",
           icon: <Hotel color="#FF6B9E" size={48} />,
         },
         {
           name: "Professional Suites & Conference Stay",
-          distance: "1 mile from venue",
+          distance: "1 km from venue",
           specialOffer: "Complimentary breakfast for delegates",
           icon: <Hotel color="#9C6FDE" size={48} />,
         },
@@ -37,8 +37,8 @@ const VenueInformation = () => {
     },
     travel: {
       airport: {
-        name: "Metropolitan International Airport",
-        distance: "15 miles from venue",
+        name: "Coimbatore International Airport",
+        distance: "88 kilometers from venue",
         transportation: [
           "Airport shuttle service",
           "Taxi and ride-share available",
@@ -90,7 +90,7 @@ const VenueInformation = () => {
             </div>
             <div className="flex items-center justify-center">
               <Image
-                src="/opf.png"
+                src="/Hotel Entrance.jpg"
                 alt="Venue"
                 className="rounded-2xl shadow-xl object-cover w-full h-96"
                 width={500}

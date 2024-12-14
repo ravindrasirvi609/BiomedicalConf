@@ -7,6 +7,7 @@ interface Member {
   name: string;
   position: string;
   organization?: string;
+  image: string;
 }
 
 const Organizingcommittee: React.FC = () => {
@@ -15,6 +16,7 @@ const Organizingcommittee: React.FC = () => {
     position: "President, Operant Biomedical Research Federation",
     organization:
       "Professor & Head, Department of Pharmacology, All India Institute of Medical Sciences, Jodhpur",
+    image: "/sneha.png",
   };
 
   const patrons: Member[] = [
@@ -22,83 +24,101 @@ const Organizingcommittee: React.FC = () => {
       name: "Dr J. S. Bhawalkar",
       position:
         "Vice President, OBRF, Registrar, Dr. D. Y.Patil Vidyapeeth, Pune.",
+      image: "/bhawalkar.png",
     },
     {
       name: "Sri Manjunath SP",
       position: "Secretary-I, JSS Mahavidyapeetha, Mysuru",
+      image: "/Manjunath.jpg",
     },
     {
       name: "Dr Suresh B",
       position: "Pro Chancellor, JSS AHER, Mysuru",
+      image: "/chancellor.jpg",
     },
     {
       name: "Dr H. Basavanagowdappa",
       position: "Vice Chancellor, JSS AHER, Mysuru",
+      image: "/Basavanna.jpeg",
     },
     {
       name: "Dr Manhunatha B",
       position: "Registrar, JSS AHER, Mysuru",
+      image: "/Manhunatha.jpg",
     },
     {
       name: "Dr Vikram Choudhary",
       position: "Secretary, Operant Biomedical Research Federation",
+      image: "/097A3252.jpg",
     },
   ];
 
   const locChair: Member = {
     name: "Dr Gopal Natesan",
     position: "Director, International Affairs, OBRF",
+    image: "/gopal.jpeg",
   };
 
   const convener: Member = {
     name: "Dr Dhanabal SP",
     position: "Principal, JSS CP, Ooty",
+    image: "/Dhanabal.png",
   };
 
   const organisingSecretary: Member = {
     name: "Dr R. Kalirajan",
     position: "Head, JSSCP, Ooty",
+    image: "/Kalirajan.jpg",
   };
 
   const organisingCommittee: Member[] = [
     {
       name: "Dr Priyanka Kumawat",
       position: "Joint Secretary",
+      image: "/Priyanka.png",
     },
     {
       name: "Dr Srikanth Jupudi",
       position: "Accommodation / Transport Committee",
+      image: "/Shrikant.webp",
     },
     {
       name: "Dr Wu Yuan Seng",
       position: "Sunway University, Malaysia",
       organization: "Scientific Committee – International Member",
+      image: "/Wu.jpg",
     },
     {
       name: "Dr Sunil Vishnoi",
       position: "Joint Secretary",
+      image: "/Sunil.png",
     },
     {
       name: "Dr Rimjhim Arora",
       position: "Treasurer",
+      image: "/Rimjhim.png",
     },
     {
       name: "Sri Ravindra Sirvi",
       position: "Technical & IT Committee",
       organization: "8107199052",
+      image: "/ravi night.jpg",
     },
     {
       name: "Dr Ankita Sharma",
       position: "Scientific Committee Coordinator",
+      image: "/Ankita.png",
     },
     {
       name: "Dr. Arup Kumar Mishra",
       position: "Scientific Committee Member",
+      image: "/Arup.png",
     },
     {
       name: "Dr Vijay A. Jagtap",
       position: "Organising Committee Member",
       organization: "Principal, YBCoP, Sawantwadi",
+      image: "/Vijay.jpeg",
     },
   ];
 
@@ -119,7 +139,7 @@ const Organizingcommittee: React.FC = () => {
           </div>
           <div className="p-6 flex flex-col items-center">
             <Image
-              src="https://via.placeholder.com/150"
+              src={chiefPatron.image}
               alt={chiefPatron.name}
               className="w-32 h-32 rounded-full mb-4 border-4 border-[#FF6B9E]"
               width={150}
@@ -148,7 +168,7 @@ const Organizingcommittee: React.FC = () => {
                 className="bg-gray-100 rounded-lg p-4 flex flex-col items-center transition-transform transform hover:scale-105"
               >
                 <Image
-                  src="https://via.placeholder.com/150"
+                  src={patron.image}
                   alt={patron.name}
                   className="w-32 h-32 rounded-full mb-4 border-4 border-[#FF6B9E]"
                   width={150}
@@ -174,7 +194,7 @@ const Organizingcommittee: React.FC = () => {
           </div>
           <div className="p-6 flex flex-col items-center">
             <Image
-              src="https://via.placeholder.com/150"
+              src={locChair.image}
               alt={locChair.name}
               className="w-32 h-32 rounded-full mb-4 border-4 border-[#FF6B9E]"
               width={150}
@@ -193,7 +213,7 @@ const Organizingcommittee: React.FC = () => {
           </div>
           <div className="p-6 flex flex-col items-center">
             <Image
-              src="https://via.placeholder.com/150"
+              src={convener.image}
               alt={convener.name}
               className="w-32 h-32 rounded-full mb-4 border-4 border-[#FF6B9E]"
               width={150}
@@ -214,7 +234,7 @@ const Organizingcommittee: React.FC = () => {
           </div>
           <div className="p-6 flex flex-col items-center">
             <Image
-              src="https://via.placeholder.com/150"
+              src={organisingSecretary.image}
               alt={organisingSecretary.name}
               className="w-32 h-32 rounded-full mb-4 border-4 border-[#FF6B9E]"
               width={150}
@@ -242,7 +262,7 @@ const Organizingcommittee: React.FC = () => {
                 className="bg-gray-100 rounded-lg p-4 flex flex-col items-center transition-transform transform hover:scale-105"
               >
                 <Image
-                  src="https://via.placeholder.com/150"
+                  src={member.image}
                   alt={member.name}
                   className="w-32 h-32 rounded-full mb-4 border-4 border-[#FF6B9E]"
                   width={150}

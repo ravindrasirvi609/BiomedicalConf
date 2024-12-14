@@ -3,7 +3,10 @@ import { FaUsers, FaLightbulb, FaRegFileAlt } from "react-icons/fa";
 
 const ConferenceDetails = () => {
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white py-20 px-6 md:px-16 lg:px-24 font-inter">
+    <div
+      className="bg-gradient-to-b from-gray-50 to-white py-20 px-6 md:px-16 lg:px-24 font-inter "
+      id="details"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {/* Theme Areas */}

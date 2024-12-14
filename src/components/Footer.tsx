@@ -1,28 +1,19 @@
 import React from "react";
-import {
-  Facebook,
-  Twitter,
-  Linkedin,
-  Instagram,
-  Mail,
-  Phone,
-  MapPin,
-} from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const ConferenceFooter = () => {
-  const socialLinks = [
-    { icon: <Facebook color="#9C6FDE" size={24} />, href: "#" },
-    { icon: <Twitter color="#FF6B9E" size={24} />, href: "#" },
-    { icon: <Linkedin color="#9C6FDE" size={24} />, href: "#" },
-    { icon: <Instagram color="#FF6B9E" size={24} />, href: "#" },
-  ];
+  // const socialLinks = [
+  //   { icon: <Facebook color="#9C6FDE" size={24} />, href: "#" },
+  //   { icon: <Twitter color="#FF6B9E" size={24} />, href: "#" },
+  //   { icon: <Linkedin color="#9C6FDE" size={24} />, href: "#" },
+  //   { icon: <Instagram color="#FF6B9E" size={24} />, href: "#" },
+  // ];
 
   const quickLinks = [
     { name: "Home", href: "#" },
-    { name: "Schedule", href: "#" },
-    { name: "Speakers", href: "#" },
-    { name: "Registration", href: "#" },
-    { name: "Venue", href: "#" },
+    { name: "Terms Of Service", href: "#" },
+    { name: "Privacy Policy", href: "#" },
+    { name: "Refund Policy", href: "#" },
   ];
 
   return (
@@ -37,7 +28,7 @@ const ConferenceFooter = () => {
             <p className="text-gray-700 mb-4">
               Advancing Medical Knowledge and Innovation
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
@@ -47,7 +38,7 @@ const ConferenceFooter = () => {
                   {social.icon}
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
@@ -77,15 +68,15 @@ const ConferenceFooter = () => {
             <div className="space-y-3">
               <div className="flex items-center text-gray-700">
                 <Mail className="mr-3 text-[#9C6FDE]" size={20} />
-                info@medicalconference.com
+                info@obrf.org.in
               </div>
               <div className="flex items-center text-gray-700">
                 <Phone className="mr-3 text-[#FF6B9E]" size={20} />
-                +1 (555) 123-4567
+                +91 94609 71652
               </div>
               <div className="flex items-center text-gray-700">
                 <MapPin className="mr-3 text-[#9C6FDE]" size={20} />
-                Medical District, City, Country
+                Ooty, Tamil Nadu, India
               </div>
             </div>
           </div>

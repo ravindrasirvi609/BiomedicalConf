@@ -16,22 +16,33 @@ import { storage } from "@/lib/firebase";
 const CallForPapers = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [paperDetails, setPaperDetails] = useState<{
     title: string;
     author: string;
     email: string;
     abstract: string;
     file: File | null;
+    coAuthor?: string; // Optional co-author
+    presentationSubject?: string;
+    articleType?: string;
+    abstractTitle?: string;
+    city?: string;
+    state?: string;
+    pincode?: string;
   }>({
     title: "",
     author: "",
     email: "",
     abstract: "",
     file: null,
+    coAuthor: "", // Initial value for optional co-author
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setPaperDetails((prev) => ({
@@ -71,10 +82,12 @@ const CallForPapers = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
 
     // Validate all fields
     if (!paperDetails.file) {
       setError("Please upload a file");
+      setIsLoading(false);
       return;
     }
 
@@ -82,7 +95,7 @@ const CallForPapers = () => {
       // Upload file to Firebase Storage
       const storageRef = ref(
         storage,
-        `abstracts/${Date.now()}_${paperDetails.file.name}`
+        `abstracts/<span class="math-inline">\{Date\.now\(\)\}\_</span>{paperDetails.file.name}`
       );
       const snapshot = await uploadBytes(storageRef, paperDetails.file);
       const downloadURL = await getDownloadURL(snapshot.ref);
@@ -102,6 +115,8 @@ const CallForPapers = () => {
     } catch (error) {
       console.error("Submission error:", error);
       setError("Failed to submit paper. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -110,6 +125,27 @@ const CallForPapers = () => {
     { date: "February 15, 2025", event: "Notification of Acceptance" },
     { date: "February 28, 2025", event: "Camera-Ready Submissions" },
   ];
+
+  const presentationSubjects = [
+    "Artificial Intelligence in Healthcare",
+    "Machine Learning for Medical Diagnosis",
+    "Bioinformatics and Genomics",
+    "Telemedicine and Remote Patient Monitoring",
+    "Medical Imaging and Image Analysis",
+    "Robotics and Surgery",
+    "Health Informatics and Data Analytics",
+    "Other",
+  ];
+
+  const articleTypes = [
+    "Original Research",
+    "Review Article",
+    "Case Report",
+    "Meta-Analysis",
+    "Short Communication",
+    "Other",
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#9C6FDE]/10 to-[#9C6FDE]/20 py-16 flex items-center justify-center">
       <div className="container mx-auto px-6">
@@ -213,6 +249,72 @@ const CallForPapers = () => {
 
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
+                    Co-Author (if any)
+                  </label>
+                  <input
+                    type="text"
+                    name="coAuthor"
+                    value={paperDetails.coAuthor}
+                    onChange={handleInputChange}
+                    placeholder="Enter co-author's name (optional)"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Select Presentation Subject
+                  </label>
+                  <select
+                    name="presentationSubject"
+                    value={paperDetails.presentationSubject}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  >
+                    <option value="">Select a subject</option>
+                    {presentationSubjects.map((subject) => (
+                      <option key={subject} value={subject}>
+                        {subject}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Article Type
+                  </label>
+                  <select
+                    name="articleType"
+                    value={paperDetails.articleType}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  >
+                    <option value="">Select an article type</option>
+                    {articleTypes.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Title of Abstract
+                  </label>
+                  <input
+                    type="text"
+                    name="abstractTitle"
+                    value={paperDetails.abstractTitle}
+                    onChange={handleInputChange}
+                    placeholder="Enter the title of your abstract"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
                     Abstract
                   </label>
                   <textarea
@@ -227,7 +329,7 @@ const CallForPapers = () => {
                 </div>
 
                 <div>
-                  <label className=" mb-2 text-gray-700 font-semibold flex items-center">
+                  <label className="block mb-2 text-gray-700 font-semibold  items-center">
                     <Paperclip className="mr-2 text-[#9C6FDE]" />
                     Upload Paper
                   </label>
@@ -240,12 +342,65 @@ const CallForPapers = () => {
                   />
                 </div>
 
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Address for Communication
+                  </label>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div>
+                      <label className="block mb-2 text-gray-700">City</label>
+                      <input
+                        type="text"
+                        name="city"
+                        value={paperDetails.city}
+                        onChange={handleInputChange}
+                        placeholder="Enter your city"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block mb-2 text-gray-700">State</label>
+                      <select
+                        name="state"
+                        value={paperDetails.state}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                      >
+                        {/* Add options for states here */}
+                        <option value="">Select your state</option>
+                        {/* Example: */}
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Karnataka">Karnataka</option>
+                        {/* Add more states as needed */}
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block mb-2 text-gray-700">
+                        Pincode
+                      </label>
+                      <input
+                        type="text"
+                        name="pincode"
+                        value={paperDetails.pincode}
+                        onChange={handleInputChange}
+                        placeholder="Enter your pincode"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                      />
+                    </div>
+                  </div>
+                </div>
+
                 <button
                   type="submit"
                   className="w-full bg-[#9C6FDE] text-white py-4 rounded-xl hover:bg-[#7A50B3] transition duration-300 flex items-center justify-center"
+                  disabled={isLoading}
                 >
-                  <Upload className="mr-3" />
-                  Submit Paper
+                  {isLoading ? (
+                    <span className="loader"></span>
+                  ) : (
+                    <Upload className="mr-3" />
+                  )}
+                  {isLoading ? "Submitting..." : "Submit Paper"}
                 </button>
 
                 {error && (

@@ -137,14 +137,7 @@ const CallForPapers = () => {
     "Other",
   ];
 
-  const articleTypes = [
-    "Original Research",
-    "Review Article",
-    "Case Report",
-    "Meta-Analysis",
-    "Short Communication",
-    "Other",
-  ];
+  const articleTypes = ["poster", "oral"];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#9C6FDE]/10 to-[#9C6FDE]/20 py-16 flex items-center justify-center">

@@ -11,7 +11,20 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // Destructure form data
-    const { title, author, email, abstract, fileUrl } = body;
+    const {
+      title,
+      author,
+      email,
+      abstract,
+      fileUrl,
+      coAuthor,
+      presentationSubject,
+      articleType,
+      abstractTitle,
+      city,
+      state,
+      pincode,
+    } = body;
 
     // Google Sheets integration
     const sheets = google.sheets("v4");
@@ -29,11 +42,25 @@ export async function POST(request: NextRequest) {
     const googleSheetInstance = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
       auth,
-      range: "Sheet1!A:F",
+      range: "Sheet1!A:K", // Adjusted range to include new fields
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
-          [title, author, email, abstract, fileUrl, new Date().toISOString()],
+          [
+            title,
+            author,
+            email,
+            coAuthor || "N/A",
+            presentationSubject || "N/A",
+            articleType || "N/A",
+            abstractTitle || "N/A",
+            abstract,
+            fileUrl,
+            city || "N/A",
+            state || "N/A",
+            pincode || "N/A",
+            new Date().toISOString(),
+          ],
         ],
       },
     });
@@ -53,7 +80,16 @@ export async function POST(request: NextRequest) {
         <ul>
           <li><strong>Title:</strong> ${title}</li>
           <li><strong>Authors:</strong> ${author}</li>
+          <li><strong>Co-Author:</strong> ${coAuthor || "N/A"}</li>
+          <li><strong>Presentation Subject:</strong> ${
+            presentationSubject || "N/A"
+          }</li>
+          <li><strong>Article Type:</strong> ${articleType || "N/A"}</li>
+          <li><strong>Abstract Title:</strong> ${abstractTitle || "N/A"}</li>
           <li><strong>Abstract:</strong> ${abstract}</li>
+          <li><strong>City:</strong> ${city || "N/A"}</li>
+          <li><strong>State:</strong> ${state || "N/A"}</li>
+          <li><strong>Pincode:</strong> ${pincode || "N/A"}</li>
         </ul>
         
         <p>Your submission will be reviewed by our committee. We will contact you with further information.</p>
@@ -81,11 +117,3 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-
-// Note: In App Router, file upload handling is different
-// You might want to use libraries like formidable or use server-side file handling
-export const config = {
-  api: {
-    bodyParser: true, // Enable JSON body parsing
-  },
-};

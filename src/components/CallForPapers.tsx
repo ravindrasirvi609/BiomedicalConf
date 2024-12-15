@@ -175,6 +175,93 @@ const CallForPapers = () => {
             </div>
 
             <div className="bg-white/80 backdrop-blur-lg rounded-3xl p-8 shadow-lg">
+              <h3 className="text-2xl font-semibold mb-6 text-gray-800">
+                Submission Guidelines
+              </h3>
+              <p className="text-gray-600 mb-4">
+                The BioMedCon - 2025 Scientific Committee has great pleasure in
+                inviting you to submit your original findings for an Oral /
+                E-Poster presentation in one of the following scientific
+                sessions during the conference with the aim to disseminate
+                knowledge and facilitate the exchange of new ideas among the
+                members of the Biomedical profession.
+              </p>
+              <p className="text-gray-600 mb-4">
+                All abstracts must be submitted online through the website only.
+                One person may submit ONLY ONE Abstract as the Primary Author
+                and may submit a maximum of 3 abstracts as a Co-Author. The same
+                person may serve as the presenting author in ONLY ONE Paper. The
+                presenting author must be a registered delegate to BioMedCon -
+                2025, Ooty.
+              </p>
+              <p className="text-gray-600 mb-4">
+                The presenting author is required to ensure that all the
+                co-authors are aware of the content of the abstract and agree to
+                its submission, before submitting the abstract. All abstracts
+                must be submitted in English.
+              </p>
+              <p className="text-gray-600 mb-4">
+                You may contact our team for instructions regarding the
+                preparation of presentations. The Abstract shall comprise of
+                Title, followed by authors, affiliation, introduction, aim &
+                objectives, methods, results, summary & conclusion. (12 font
+                size) in Times New Roman font. The abstract shall be restricted
+                between 250 to 350 words. Model abstract available on website.
+              </p>
+              <p className="text-gray-600 mb-4">
+                The abstract can be submitted for Oral will be subjected to slot
+                availability and will be decided by the scientific committee.
+                Primary Author’s Contact Details: Full Name, Email Address,
+                Phone Number, Affiliation Details: Department,
+                Institution/Hospital, City, State (if relevant), PIN Code,
+                Country.
+              </p>
+              <p className="text-gray-600 mb-4">
+                Co-Authors Details: Full Name, Email Address, Phone Number,
+                Affiliation Details: Department, Institution/Hospital, City,
+                State (if relevant), PIN Code, Country. Preferred Presentation
+                Type: Paper Presentation, Oral Poster Presentation, Poster
+                Presentation, or Paper Presentation and Publication.
+              </p>
+              <p className="text-gray-600 mb-4">
+                Use generic names of drugs. Abstract must be balanced and
+                contain no commercial promotional content. Submissions may not
+                contain patient names, hospital ID numbers, or any other
+                identifying information. Please do not submit multiple copies of
+                the same abstract.
+              </p>
+              <p className="text-gray-600 mb-4">
+                All queries related to abstract submission should be mailed to{" "}
+                <a href="mailto:admin@obrf.org.in" className="text-blue-500">
+                  admin@obrf.org.in
+                </a>
+                .
+              </p>
+              <p className="text-gray-600 mb-4">
+                *Accepted abstracts and selected papers will have the
+                opportunity to publish as full-length articles in Malaysian
+                Journal of Medicine and Health Sciences (MJMHS), indexed in
+                Scopus & Web of Science (Additional APC Applicable as per
+                Journal Special Issue Guidelines followed by peer review
+                process).
+              </p>
+              <p className="text-gray-600 mb-4">
+                Regarding Technical Helpline: Dr. Ravindra Sirvi +91 - 81071
+                99052 or{" "}
+                <a href="mailto:admin@obrf.org.in" className="text-blue-500">
+                  admin@obrf.org.in
+                </a>
+                .
+              </p>
+              <p className="text-gray-600 mb-4">
+                Awards: Papers adjudged as best in both oral and poster sessions
+                by an independent jury will be given “Best Oral and Poster
+                Presentation awards” respectively during the valedictory
+                function.
+              </p>
+            </div>
+
+            <div className="bg-white/80 backdrop-blur-lg rounded-3xl p-8 shadow-lg">
               <h3 className="text-2xl font-semibold mb-6 text-gray-800 flex items-center">
                 <Calendar className="w-6 h-6 mr-3 text-[#9C6FDE]" />
                 Important Dates

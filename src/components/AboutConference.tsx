@@ -51,11 +51,20 @@ const ConferenceDetails = () => {
             </div>
             <div className="p-6">
               <p className="text-gray-700 text-base">
-                This conference is tailored for clinicians, biomedical
-                researchers, medical professionals, data scientists, and AI
-                experts interested in the convergence of technology and
-                healthcare research. Participants will gain practical knowledge
-                and access to pioneering research.
+                The Conference on &quot;Advancement in Biomedical Research and
+                Drug Development: From Traditional to AI&quot; will explore the
+                evolving landscape of biomedical research, bridging traditional
+                approaches with modern advancements in artificial intelligence
+                and machine learning. This multidisciplinary event will cover a
+                wide range of topics, including innovative techniques in drug
+                discovery, the integration of computational tools in biomedical
+                research, and the role of AI and ML in optimizing clinical
+                trials. Participants will gain insights through keynote
+                addresses by renowned experts, interactive panel discussions,
+                and presentations of cutting-edge research. The conference aims
+                to foster collaboration among academia, industry, and
+                researchers, driving innovation and addressing global healthcare
+                challenges.
               </p>
             </div>
           </div>

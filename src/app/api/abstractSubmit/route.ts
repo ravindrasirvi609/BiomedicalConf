@@ -12,18 +12,24 @@ export async function POST(request: NextRequest) {
 
     // Destructure form data
     const {
-      title,
-      author,
+      presentingAuthor,
+      designation,
+      affiliation,
       email,
+      whatsappNo,
+      address,
+      city,
+      state,
+      country,
+      pincode,
       abstract,
       fileUrl,
       coAuthor,
+      presentationType,
       presentationSubject,
       articleType,
       abstractTitle,
-      city,
-      state,
-      pincode,
+      keywords,
     } = body;
 
     // Google Sheets integration
@@ -42,23 +48,29 @@ export async function POST(request: NextRequest) {
     const googleSheetInstance = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
       auth,
-      range: "Sheet1!A:K", // Adjusted range to include new fields
+      range: "Sheet1!A:R",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
           [
-            title,
-            author,
+            presentingAuthor,
+            designation,
+            affiliation,
             email,
+            whatsappNo,
+            address,
+            city,
+            state,
+            country,
+            pincode,
+            abstract,
+            fileUrl,
             coAuthor || "N/A",
+            presentationType || "N/A",
             presentationSubject || "N/A",
             articleType || "N/A",
             abstractTitle || "N/A",
-            abstract,
-            fileUrl,
-            city || "N/A",
-            state || "N/A",
-            pincode || "N/A",
+            keywords || "N/A",
             new Date().toISOString(),
           ],
         ],
@@ -73,23 +85,27 @@ export async function POST(request: NextRequest) {
       html: `
         <h1>Paper Submission Confirmation</h1>
         
-        <p>Dear ${author},</p>
+        <p>Dear ${presentingAuthor},</p>
         
         <p>We have received your paper submission with the following details:</p>
         
         <ul>
-          <li><strong>Title:</strong> ${title}</li>
-          <li><strong>Authors:</strong> ${author}</li>
+          <li><strong>Title:</strong> ${abstractTitle}</li>
+          <li><strong>Authors:</strong> ${presentingAuthor}</li>
           <li><strong>Co-Author:</strong> ${coAuthor || "N/A"}</li>
+          <li><strong>Presentation Type:</strong> ${
+            presentationType || "N/A"
+          }</li>
           <li><strong>Presentation Subject:</strong> ${
             presentationSubject || "N/A"
           }</li>
           <li><strong>Article Type:</strong> ${articleType || "N/A"}</li>
-          <li><strong>Abstract Title:</strong> ${abstractTitle || "N/A"}</li>
           <li><strong>Abstract:</strong> ${abstract}</li>
           <li><strong>City:</strong> ${city || "N/A"}</li>
           <li><strong>State:</strong> ${state || "N/A"}</li>
+          <li><strong>Country:</strong> ${country || "N/A"}</li>
           <li><strong>Pincode:</strong> ${pincode || "N/A"}</li>
+          <li><strong>Keywords:</strong> ${keywords || "N/A"}</li>
         </ul>
         
         <p>Your submission will be reviewed by our committee. We will contact you with further information.</p>

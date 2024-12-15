@@ -4,7 +4,6 @@ import {
   FileText,
   Upload,
   Calendar,
-  Paperclip,
   CheckCircle,
   BookOpen,
   Lightbulb,
@@ -18,25 +17,43 @@ const CallForPapers = () => {
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [paperDetails, setPaperDetails] = useState<{
-    title: string;
-    author: string;
+    presentingAuthor: string;
+    designation: string;
+    affiliation: string;
     email: string;
+    whatsappNo: string;
+    address: string;
+    city: string;
+    state: string;
+    country: string;
+    pincode: string;
     abstract: string;
     file: File | null;
-    coAuthor?: string; // Optional co-author
+    coAuthor?: string;
+    presentationType?: string;
     presentationSubject?: string;
     articleType?: string;
     abstractTitle?: string;
-    city?: string;
-    state?: string;
-    pincode?: string;
+    keywords: string;
   }>({
-    title: "",
-    author: "",
+    presentingAuthor: "",
+    designation: "",
+    affiliation: "",
     email: "",
+    whatsappNo: "",
+    address: "",
+    city: "",
+    state: "",
+    country: "",
+    pincode: "",
     abstract: "",
     file: null,
-    coAuthor: "", // Initial value for optional co-author
+    coAuthor: "",
+    presentationType: "",
+    presentationSubject: "",
+    articleType: "",
+    abstractTitle: "",
+    keywords: "",
   });
 
   const handleInputChange = (
@@ -95,7 +112,7 @@ const CallForPapers = () => {
       // Upload file to Firebase Storage
       const storageRef = ref(
         storage,
-        `abstracts/<span class="math-inline">\{Date\.now\(\)\}\_</span>{paperDetails.file.name}`
+        `abstracts/${Date.now()}_${paperDetails.file.name}`
       );
       const snapshot = await uploadBytes(storageRef, paperDetails.file);
       const downloadURL = await getDownloadURL(snapshot.ref);
@@ -125,19 +142,6 @@ const CallForPapers = () => {
     { date: "February 15, 2025", event: "Notification of Acceptance" },
     { date: "February 28, 2025", event: "Camera-Ready Submissions" },
   ];
-
-  const presentationSubjects = [
-    "Artificial Intelligence in Healthcare",
-    "Machine Learning for Medical Diagnosis",
-    "Bioinformatics and Genomics",
-    "Telemedicine and Remote Patient Monitoring",
-    "Medical Imaging and Image Analysis",
-    "Robotics and Surgery",
-    "Health Informatics and Data Analytics",
-    "Other",
-  ];
-
-  const articleTypes = ["poster", "oral"];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#9C6FDE]/10 to-[#9C6FDE]/20 py-16 flex items-center justify-center">
@@ -197,37 +201,52 @@ const CallForPapers = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
-                    Paper Title
+                    Presenting Author Full Name*
                   </label>
                   <input
                     type="text"
-                    name="title"
+                    name="presentingAuthor"
                     required
-                    value={paperDetails.title}
+                    value={paperDetails.presentingAuthor}
                     onChange={handleInputChange}
-                    placeholder="Enter your paper title"
+                    placeholder="Enter presenting author's full name"
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
-                    Author(s)
+                    Designation*
                   </label>
                   <input
                     type="text"
-                    name="author"
+                    name="designation"
                     required
-                    value={paperDetails.author}
+                    value={paperDetails.designation}
                     onChange={handleInputChange}
-                    placeholder="List all authors"
+                    placeholder="Enter designation"
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
-                    Email
+                    Affiliation*
+                  </label>
+                  <input
+                    type="text"
+                    name="affiliation"
+                    required
+                    value={paperDetails.affiliation}
+                    onChange={handleInputChange}
+                    placeholder="Enter affiliation"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Email*
                   </label>
                   <input
                     type="email"
@@ -235,70 +254,186 @@ const CallForPapers = () => {
                     required
                     value={paperDetails.email}
                     onChange={handleInputChange}
-                    placeholder="Contact email address"
+                    placeholder="Enter email"
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
-                    Co-Author (if any)
+                    Whatsapp No.*
+                  </label>
+                  <input
+                    type="text"
+                    name="whatsappNo"
+                    required
+                    value={paperDetails.whatsappNo}
+                    onChange={handleInputChange}
+                    placeholder="Enter Whatsapp number"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Address*
+                  </label>
+                  <input
+                    type="text"
+                    name="address"
+                    required
+                    value={paperDetails.address}
+                    onChange={handleInputChange}
+                    placeholder="Enter address"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    City*
+                  </label>
+                  <input
+                    type="text"
+                    name="city"
+                    required
+                    value={paperDetails.city}
+                    onChange={handleInputChange}
+                    placeholder="Enter city"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    State or Region*
+                  </label>
+                  <input
+                    type="text"
+                    name="state"
+                    required
+                    value={paperDetails.state}
+                    onChange={handleInputChange}
+                    placeholder="Enter state or region"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Country*
+                  </label>
+                  <input
+                    type="text"
+                    name="country"
+                    required
+                    value={paperDetails.country}
+                    onChange={handleInputChange}
+                    placeholder="Enter country"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Zip / Pin*
+                  </label>
+                  <input
+                    type="text"
+                    name="pincode"
+                    required
+                    value={paperDetails.pincode}
+                    onChange={handleInputChange}
+                    placeholder="Enter zip or pin code"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Abstract to be submitted for*
+                  </label>
+                  <select
+                    name="presentationType"
+                    required
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  >
+                    <option value="">Select type</option>
+                    <option value="Oral Presentation">Oral Presentation</option>
+                    <option value="Poster Presentation">
+                      Poster Presentation
+                    </option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Select Presentation Subject*
+                  </label>
+                  <input
+                    type="text"
+                    name="presentationSubject"
+                    required
+                    value={paperDetails.presentationSubject}
+                    onChange={handleInputChange}
+                    placeholder="Enter presentation subject"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Article Type*
+                  </label>
+                  <select
+                    name="articleType"
+                    required
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  >
+                    <option value="">Select article type</option>
+                    <option value="Original Research">Original Research</option>
+                    <option value="Review Article">Review Article</option>
+                    <option value="Case Study">Case Study</option>
+                    <option value="Short Communications/Brief Reports">
+                      Short Communications/Brief Reports
+                    </option>
+                    <option value="Technical Notes">Technical Notes</option>
+                    <option value="Hypothesis Articles">
+                      Hypothesis Articles
+                    </option>
+                    <option value="Data Papers">Data Papers</option>
+                    <option value="Protocols">Protocols</option>
+                    <option value="Systematic Reviews and Meta-Analyses">
+                      Systematic Reviews and Meta-Analyses
+                    </option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Co-authors (If Any) –
                   </label>
                   <input
                     type="text"
                     name="coAuthor"
                     value={paperDetails.coAuthor}
                     onChange={handleInputChange}
-                    placeholder="Enter co-author's name (optional)"
+                    placeholder="Enter co-authors"
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
-                    Select Presentation Subject
-                  </label>
-                  <select
-                    name="presentationSubject"
-                    value={paperDetails.presentationSubject}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
-                  >
-                    <option value="">Select a subject</option>
-                    {presentationSubjects.map((subject) => (
-                      <option key={subject} value={subject}>
-                        {subject}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block mb-2 text-gray-700 font-semibold">
-                    Article Type
-                  </label>
-                  <select
-                    name="articleType"
-                    value={paperDetails.articleType}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
-                  >
-                    <option value="">Select an article type</option>
-                    {articleTypes.map((type) => (
-                      <option key={type} value={type}>
-                        {type}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block mb-2 text-gray-700 font-semibold">
-                    Title of Abstract
+                    Title of Abstract*
                   </label>
                   <input
                     type="text"
                     name="abstractTitle"
+                    required
                     value={paperDetails.abstractTitle}
                     onChange={handleInputChange}
                     placeholder="Enter the title of your abstract"
@@ -308,7 +443,7 @@ const CallForPapers = () => {
 
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
-                    Abstract
+                    Abstract*
                   </label>
                   <textarea
                     name="abstract"
@@ -322,9 +457,23 @@ const CallForPapers = () => {
                 </div>
 
                 <div>
-                  <label className="block mb-2 text-gray-700 font-semibold  items-center">
-                    <Paperclip className="mr-2 text-[#9C6FDE]" />
-                    Upload Paper
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Keywords*
+                  </label>
+                  <input
+                    type="text"
+                    name="keywords"
+                    required
+                    value={paperDetails.keywords}
+                    onChange={handleInputChange}
+                    placeholder="Enter keywords"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-gray-700 font-semibold">
+                    Abstract File upload*
                   </label>
                   <input
                     type="file"
@@ -332,92 +481,8 @@ const CallForPapers = () => {
                     onChange={handleFileUpload}
                     accept=".pdf,.doc,.docx"
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 file:mr-4 file:rounded-full file:border-0 file:bg-[#9C6FDE]/10 file:px-4 file:py-2 file:text-[#9C6FDE] hover:file:bg-[#9C6FDE]/20"
+                    required
                   />
-                </div>
-
-                <div>
-                  <label className="block mb-2 text-gray-700 font-semibold">
-                    Address for Communication
-                  </label>
-                  <div className="grid grid-cols-3 gap-4">
-                    <div>
-                      <label className="block mb-2 text-gray-700">City</label>
-                      <input
-                        type="text"
-                        name="city"
-                        value={paperDetails.city}
-                        onChange={handleInputChange}
-                        placeholder="Enter your city"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block mb-2 text-gray-700">State</label>
-                      <select
-                        name="state"
-                        value={paperDetails.state}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
-                      >
-                        <option value="">Select your state</option>
-                        <option value="Andhra Pradesh">Andhra Pradesh</option>
-                        <option value="Arunachal Pradesh">
-                          Arunachal Pradesh
-                        </option>
-                        <option value="Assam">Assam</option>
-                        <option value="Bihar">Bihar</option>
-                        <option value="Chhattisgarh">Chhattisgarh</option>
-                        <option value="Goa">Goa</option>
-                        <option value="Gujarat">Gujarat</option>
-                        <option value="Haryana">Haryana</option>
-                        <option value="Himachal Pradesh">
-                          Himachal Pradesh
-                        </option>
-                        <option value="Jharkhand">Jharkhand</option>
-                        <option value="Karnataka">Karnataka</option>
-                        <option value="Kerala">Kerala</option>
-                        <option value="Madhya Pradesh">Madhya Pradesh</option>
-                        <option value="Maharashtra">Maharashtra</option>
-                        <option value="Manipur">Manipur</option>
-                        <option value="Meghalaya">Meghalaya</option>
-                        <option value="Mizoram">Mizoram</option>
-                        <option value="Nagaland">Nagaland</option>
-                        <option value="Odisha">Odisha</option>
-                        <option value="Punjab">Punjab</option>
-                        <option value="Rajasthan">Rajasthan</option>
-                        <option value="Sikkim">Sikkim</option>
-                        <option value="Tamil Nadu">Tamil Nadu</option>
-                        <option value="Telangana">Telangana</option>
-                        <option value="Tripura">Tripura</option>
-                        <option value="Uttar Pradesh">Uttar Pradesh</option>
-                        <option value="Uttarakhand">Uttarakhand</option>
-                        <option value="West Bengal">West Bengal</option>
-                        <option value="Andaman and Nicobar Islands">
-                          Andaman and Nicobar Islands
-                        </option>
-                        <option value="Chandigarh">Chandigarh</option>
-                        <option value="Dadra and Nagar Haveli and Daman and Diu">
-                          Dadra and Nagar Haveli and Daman and Diu
-                        </option>
-                        <option value="Lakshadweep">Lakshadweep</option>
-                        <option value="Delhi">Delhi</option>
-                        <option value="Puducherry">Puducherry</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block mb-2 text-gray-700">
-                        Pincode
-                      </label>
-                      <input
-                        type="text"
-                        name="pincode"
-                        value={paperDetails.pincode}
-                        onChange={handleInputChange}
-                        placeholder="Enter your pincode"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
-                      />
-                    </div>
-                  </div>
                 </div>
 
                 <button

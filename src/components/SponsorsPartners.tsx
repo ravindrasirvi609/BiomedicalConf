@@ -11,28 +11,28 @@ const SponsorsPartners = () => {
   const sponsors = [
     {
       name: "MedTech Innovations",
-      logo: "/opf.png",
+      logo: "/opff.png",
       tier: "Platinum",
       description: "Leading medical technology solutions",
       icon: <LucideStethoscope color="#9C6FDE" size={48} />,
     },
     {
       name: "HealthCare Dynamics",
-      logo: "/opf.png",
+      logo: "/opff.png",
       tier: "Gold",
       description: "Revolutionizing patient care platforms",
       icon: <LucideHospital color="#FF6B9E" size={48} />,
     },
     {
       name: "Global Medical Research",
-      logo: "/opf.png",
+      logo: "/opff.png",
       tier: "Silver",
       description: "Advancing medical research worldwide",
       icon: <LucideShieldCheck color="#9C6FDE" size={48} />,
     },
     {
       name: "Precision Healthcare",
-      logo: "/opf.png",
+      logo: "/opff.png",
       tier: "Bronze",
       description: "Innovative medical solutions",
       icon: <LucideHeartPulse color="#FF6B9E" size={48} />,

@@ -11,9 +11,9 @@ const ConferenceFooter = () => {
 
   const quickLinks = [
     { name: "Home", href: "#" },
-    { name: "Terms Of Service", href: "#" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Refund Policy", href: "#" },
+    { name: "Terms Of Service", href: "TermsOfService" },
+    { name: "Privacy Policy", href: "PrivacyPolicy" },
+    { name: "Refund Policy", href: "RefundPolicy" },
   ];
 
   return (
@@ -68,7 +68,7 @@ const ConferenceFooter = () => {
             <div className="space-y-3">
               <div className="flex items-center text-gray-700">
                 <Mail className="mr-3 text-[#9C6FDE]" size={20} />
-                info@obrf.org.in
+                admin@obrf.org.in
               </div>
               <div className="flex items-center text-gray-700">
                 <Phone className="mr-3 text-[#FF6B9E]" size={20} />

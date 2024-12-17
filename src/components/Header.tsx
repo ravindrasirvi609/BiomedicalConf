@@ -24,6 +24,7 @@ const Header = () => {
       subLinks: [
         { href: "obrf", label: "About OBRF" },
         { href: "organizing-committee", label: "About Organizing Committee" },
+        { href: "aboutooty", label: "About Ooty" },
       ],
     },
     {

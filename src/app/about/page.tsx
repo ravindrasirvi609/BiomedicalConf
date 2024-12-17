@@ -59,7 +59,7 @@ const AboutOBRF = () => {
           </div>
           <div className="flex items-center justify-center">
             <Image
-              src="/opf.png"
+              src="/opff.png"
               alt="OBRF Mission"
               className="rounded-3xl shadow-2xl object-cover w-full h-96 transition-transform hover:scale-105"
               width={500}
@@ -113,7 +113,7 @@ const AboutOBRF = () => {
           </div>
           <div className="flex items-center justify-center">
             <Image
-              src="/opf.png"
+              src="/opff.png"
               alt="OBRF Commitment"
               className="rounded-3xl shadow-2xl object-cover w-full h-96 transition-transform hover:scale-105"
               width={500}

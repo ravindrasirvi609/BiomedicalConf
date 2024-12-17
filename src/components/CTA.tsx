@@ -16,7 +16,7 @@ const paymentPlans = [
     url: "https://payments.cashfree.com/forms/galad",
   },
   {
-    name: "Accommodation",
+    name: "Accompaying Person",
     price: "₹5900",
     url: "https://payments.cashfree.com/forms/accom",
   },
@@ -57,18 +57,20 @@ const CTA = () => {
     name: "",
     mobile: "",
     email: "",
+    paymentPlan: "",
   });
   const [errors, setErrors] = useState({
     name: "",
     mobile: "",
     email: "",
+    paymentPlan: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState("");
 
   const validateForm = () => {
-    const tempErrors = { name: "", mobile: "", email: "" };
+    const tempErrors = { name: "", mobile: "", email: "", paymentPlan: "" };
     let isValid = true;
 
     // Name validation
@@ -201,7 +203,7 @@ const CTA = () => {
                   onChange={(e) => setSelectedPlan(e.target.value)}
                   className="w-full px-6 py-4 rounded-full bg-white/90 text-gray-800 
                     placeholder-gray-500 focus:outline-none focus:ring-2 
-                    focus:ring-[#9C6FDE] transition duration-300"
+                    focus:ring-[#8f68ca] transition duration-300"
                 >
                   <option value="">Select Payment Plan</option>
                   {paymentPlans.map((plan) => (

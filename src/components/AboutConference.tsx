@@ -46,7 +46,7 @@ const ConferenceDetails = () => {
             <div className="bg-gradient-to-r from-[#FF6B9E] to-[#5482F3] py-4 px-6 text-white">
               <div className="flex items-center">
                 <FaUsers className="text-2xl mr-3" />
-                <h2 className="text-xl font-semibold">Who Should Attend</h2>
+                <h2 className="text-xl font-semibold">Conference Details</h2>
               </div>
             </div>
             <div className="p-6">

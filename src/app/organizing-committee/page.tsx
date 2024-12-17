@@ -39,7 +39,7 @@ const Organizingcommittee: React.FC = () => {
     {
       name: "Dr H. Basavanagowdappa",
       position: "Vice Chancellor, JSS AHER, Mysuru",
-      image: "/Basavanna.jpeg",
+      image: "/drbasavanagowdappa.webp",
     },
     {
       name: "Dr Manhunatha B",

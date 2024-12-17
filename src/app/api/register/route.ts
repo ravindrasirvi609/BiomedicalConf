@@ -7,6 +7,7 @@ interface FormData {
   name: string;
   mobile: string;
   email: string;
+  affiliation: string;
 }
 
 // Function to validate input
@@ -59,6 +60,7 @@ export async function POST(req: Request) {
         formData.name,
         formData.mobile,
         formData.email,
+        formData.affiliation,
       ],
     ];
 

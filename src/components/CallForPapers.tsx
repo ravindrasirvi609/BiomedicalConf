@@ -297,7 +297,7 @@ const CallForPapers = () => {
                     value={paperDetails.presentingAuthor}
                     onChange={handleInputChange}
                     placeholder="Enter presenting author's full name"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 text-black rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -312,7 +312,7 @@ const CallForPapers = () => {
                     value={paperDetails.designation}
                     onChange={handleInputChange}
                     placeholder="Enter designation"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -327,7 +327,7 @@ const CallForPapers = () => {
                     value={paperDetails.affiliation}
                     onChange={handleInputChange}
                     placeholder="Enter affiliation"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -342,7 +342,7 @@ const CallForPapers = () => {
                     value={paperDetails.email}
                     onChange={handleInputChange}
                     placeholder="Enter email"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -357,7 +357,7 @@ const CallForPapers = () => {
                     value={paperDetails.whatsappNo}
                     onChange={handleInputChange}
                     placeholder="Enter Whatsapp number"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -372,7 +372,7 @@ const CallForPapers = () => {
                     value={paperDetails.address}
                     onChange={handleInputChange}
                     placeholder="Enter address"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -387,7 +387,7 @@ const CallForPapers = () => {
                     value={paperDetails.city}
                     onChange={handleInputChange}
                     placeholder="Enter city"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -402,7 +402,7 @@ const CallForPapers = () => {
                     value={paperDetails.state}
                     onChange={handleInputChange}
                     placeholder="Enter state or region"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -417,7 +417,7 @@ const CallForPapers = () => {
                     value={paperDetails.country}
                     onChange={handleInputChange}
                     placeholder="Enter country"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -432,7 +432,7 @@ const CallForPapers = () => {
                     value={paperDetails.pincode}
                     onChange={handleInputChange}
                     placeholder="Enter zip or pin code"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -444,7 +444,7 @@ const CallForPapers = () => {
                     name="presentationType"
                     required
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   >
                     <option value="">Select type</option>
                     <option value="Oral Presentation">Oral Presentation</option>
@@ -456,7 +456,7 @@ const CallForPapers = () => {
 
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
-                    Select Presentation Subject*
+                    Enter Presentation Subject*
                   </label>
                   <input
                     type="text"
@@ -465,7 +465,7 @@ const CallForPapers = () => {
                     value={paperDetails.presentationSubject}
                     onChange={handleInputChange}
                     placeholder="Enter presentation subject"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -477,7 +477,7 @@ const CallForPapers = () => {
                     name="articleType"
                     required
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   >
                     <option value="">Select article type</option>
                     <option value="Original Research">Original Research</option>
@@ -509,7 +509,7 @@ const CallForPapers = () => {
                     value={paperDetails.coAuthor}
                     onChange={handleInputChange}
                     placeholder="Enter co-authors"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -524,7 +524,7 @@ const CallForPapers = () => {
                     value={paperDetails.abstractTitle}
                     onChange={handleInputChange}
                     placeholder="Enter the title of your abstract"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -539,7 +539,7 @@ const CallForPapers = () => {
                     onChange={handleInputChange}
                     placeholder="Provide a brief abstract of your paper"
                     rows={4}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -554,7 +554,7 @@ const CallForPapers = () => {
                     value={paperDetails.keywords}
                     onChange={handleInputChange}
                     placeholder="Enter keywords"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
 
@@ -567,7 +567,7 @@ const CallForPapers = () => {
                     name="file"
                     onChange={handleFileUpload}
                     accept=".pdf,.doc,.docx"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 file:mr-4 file:rounded-full file:border-0 file:bg-[#9C6FDE]/10 file:px-4 file:py-2 file:text-[#9C6FDE] hover:file:bg-[#9C6FDE]/20"
+                    className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 file:mr-4 file:rounded-full file:border-0 file:bg-[#9C6FDE]/10 file:px-4 file:py-2 file:text-[#9C6FDE] hover:file:bg-[#9C6FDE]/20"
                     required
                   />
                 </div>

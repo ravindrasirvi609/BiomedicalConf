@@ -75,7 +75,7 @@ const Organizingcommittee: React.FC = () => {
     {
       name: "Dr Priyanka Kumawat",
       position: "Joint Secretary",
-      image: "/Priyanka.png",
+      image: "/priyanka.webp",
     },
     {
       name: "Dr Srikanth Jupudi",
@@ -107,7 +107,7 @@ const Organizingcommittee: React.FC = () => {
     {
       name: "Dr Ankita Sharma",
       position: "Scientific Committee Coordinator",
-      image: "/Ankita.png",
+      image: "/Ankita.jpeg",
     },
     {
       name: "Dr. Arup Kumar Mishra",

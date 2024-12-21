@@ -138,13 +138,16 @@ const CallForPapers = () => {
   };
 
   const importantDates = [
-    { date: "February 1, 2025", event: "Paper Submission Deadline" },
-    { date: "February 15, 2025", event: "Notification of Acceptance" },
-    { date: "February 28, 2025", event: "Camera-Ready Submissions" },
+    { date: "January 31th, 2025", event: "Paper Submission Deadline" },
+    { date: "February 5, 2025", event: "Notification of Acceptance" },
+    { date: "January 31th, 2025", event: "Delegates Registrations" },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#9C6FDE]/10 to-[#9C6FDE]/20 py-16 flex items-center justify-center">
+    <div
+      className="min-h-screen bg-gradient-to-br from-[#9C6FDE]/10 to-[#9C6FDE]/20 py-16 flex items-center justify-center"
+      id="Abstract"
+    >
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Left Side - Information Section */}
@@ -300,7 +303,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 text-black rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Designation*
@@ -315,7 +317,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Affiliation*
@@ -330,7 +331,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Email*
@@ -345,7 +345,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Whatsapp No.*
@@ -360,7 +359,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Address*
@@ -375,7 +373,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     City*
@@ -390,7 +387,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     State or Region*
@@ -405,7 +401,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Country*
@@ -420,7 +415,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Zip / Pin*
@@ -435,7 +429,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Abstract to be submitted for*
@@ -451,9 +444,14 @@ const CallForPapers = () => {
                     <option value="Poster Presentation">
                       Poster Presentation
                     </option>
+                    <option value="E-Poster-Online">
+                      E-Poster Presentation (Online Mode)
+                    </option>
+                    <option value="E-Oral-Online">
+                      E-Oral Presentation (Online Mode)
+                    </option>
                   </select>
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Enter Presentation Subject*
@@ -468,7 +466,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Article Type*
@@ -498,7 +495,6 @@ const CallForPapers = () => {
                     <option value="Other">Other</option>
                   </select>
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Co-authors (If Any) –
@@ -512,7 +508,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Title of Abstract*
@@ -527,7 +522,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Abstract*
@@ -542,7 +536,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Keywords*
@@ -557,7 +550,6 @@ const CallForPapers = () => {
                     className="w-full px-4 py-3 rounded-xl text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9C6FDE]"
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 text-gray-700 font-semibold">
                     Abstract File upload*
@@ -571,7 +563,6 @@ const CallForPapers = () => {
                     required
                   />
                 </div>
-
                 <button
                   type="submit"
                   className="w-full bg-[#9C6FDE] text-white py-4 rounded-xl hover:bg-[#7A50B3] transition duration-300 flex items-center justify-center"
@@ -584,7 +575,6 @@ const CallForPapers = () => {
                   )}
                   {isLoading ? "Submitting..." : "Submit Paper"}
                 </button>
-
                 {error && (
                   <div className="mt-4 text-red-500 text-center">{error}</div>
                 )}

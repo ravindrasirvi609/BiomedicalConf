@@ -83,6 +83,16 @@ const HeroSection = () => {
             </div>
           </div>
 
+          <div>
+            <p className="text-[#FF6B9E]">
+              <strong>
+                Selected Research articles will be published in Scopus Indexed
+                Journal Malaysian Journal of Medicine and Health Sciences
+                (MJMHS)
+              </strong>
+            </p>
+          </div>
+
           {/* Call to Action Buttons */}
           <div className="flex flex-wrap justify-center space-x-4">
             <a
@@ -106,7 +116,7 @@ const HeroSection = () => {
               />
             </a>
             <a
-              href="#register"
+              href="#Abstract"
               className="
                 border-2 border-[#9C6FDE] 
                 text-[#9C6FDE] 
@@ -117,7 +127,7 @@ const HeroSection = () => {
                 group
               "
             >
-              Become a Participant
+              Abstract submission
               <ArrowRight
                 className="
                   ml-2 

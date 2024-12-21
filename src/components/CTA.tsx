@@ -335,11 +335,7 @@ const CTA = () => {
           <div className="flex justify-center items-center space-x-8 text-white/80">
             <div className="flex items-center space-x-2">
               <Users className="w-6 h-6" />
-              <span>2,500+ Attendees</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Globe className="w-6 h-6" />
-              <span>35+ Countries Represented</span>
+              <span>250 Attendees</span>
             </div>
           </div>
         </div>

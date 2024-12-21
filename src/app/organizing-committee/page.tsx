@@ -91,7 +91,7 @@ const Organizingcommittee: React.FC = () => {
     {
       name: "Dr Sunil Vishnoi",
       position: "Joint Secretary",
-      image: "/Sunil.png",
+      image: "/sunil.jpeg",
     },
     {
       name: "Dr Rimjhim Arora",
@@ -112,7 +112,7 @@ const Organizingcommittee: React.FC = () => {
     {
       name: "Dr. Arup Kumar Mishra",
       position: "Scientific Committee Member",
-      image: "/Arup.png",
+      image: "/ankit.jpeg",
     },
     {
       name: "Dr Vijay A. Jagtap",

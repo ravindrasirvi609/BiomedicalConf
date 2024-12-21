@@ -8,6 +8,7 @@ interface Member {
   position: string;
   organization?: string;
   image: string;
+  degisnation?: string;
 }
 
 const Organizingcommittee: React.FC = () => {
@@ -76,6 +77,8 @@ const Organizingcommittee: React.FC = () => {
       name: "Dr Priyanka Kumawat",
       position: "Joint Secretary",
       image: "/priyanka.webp",
+      degisnation:
+        "Associate Professor and Head, Department of Pharmacology, Government Medical College, Pali",
     },
     {
       name: "Dr Srikanth Jupudi",
@@ -275,6 +278,11 @@ const Organizingcommittee: React.FC = () => {
                 {member.organization && (
                   <p className="text-gray-600 text-center">
                     {member.organization}
+                  </p>
+                )}
+                {member.degisnation && (
+                  <p className="text-gray-400 text-center">
+                    {member.degisnation}
                   </p>
                 )}
               </div>

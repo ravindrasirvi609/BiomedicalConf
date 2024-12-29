@@ -72,7 +72,7 @@ const ConferenceFooter = () => {
               </div>
               <div className="flex items-center text-gray-700">
                 <Phone className="mr-3 text-[#FF6B9E]" size={20} />
-                +91 94609 71652
+                +91 72083 82058
               </div>
               <div className="flex items-center text-gray-700">
                 <MapPin className="mr-3 text-[#9C6FDE]" size={20} />

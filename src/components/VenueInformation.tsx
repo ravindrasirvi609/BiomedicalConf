@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { MapPin, Hotel, Building, Plane, Car, Calendar } from "lucide-react";
+import { MapPin, Building, Plane, Car, Calendar } from "lucide-react";
 import Image from "next/image";
 
 const VenueInformation = () => {
@@ -22,16 +22,30 @@ const VenueInformation = () => {
     accommodation: {
       hotels: [
         {
-          name: "Hotel Gem Park,Ooty",
-          distance: "On-site",
-          specialOffer: "10% discount for conference attendees",
-          icon: <Hotel color="#FF6B9E" size={48} />,
+          name: "Hotel Gem Park - Deluxe Room",
+          category: "Deluxe Room",
+          prices: {
+            single: "₹ 8000*",
+            double: "₹ 9500*",
+            triple: "₹ 11500**",
+          },
         },
         {
-          name: "Professional Suites & Conference Stay",
-          distance: "1 km from venue",
-          specialOffer: "Complimentary breakfast for delegates",
-          icon: <Hotel color="#9C6FDE" size={48} />,
+          name: "Fortune Resort Sullivan Court",
+          category: "Member ITC's Hotel Group",
+          prices: {
+            single: "₹ 8000*",
+            double: "₹ 9500*",
+            triple: "₹ 11500**",
+          },
+        },
+        {
+          name: "The Monarch Hotel - Premier Rooms",
+          category: "Premier Rooms",
+          prices: {
+            single: "₹ 6499**",
+            double: "₹ 6999*",
+          },
         },
       ],
     },
@@ -101,26 +115,40 @@ const VenueInformation = () => {
         );
       case "accommodation":
         return (
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {venueDetails.accommodation.hotels.map((hotel, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="flex items-center mb-4">
-                  {hotel.icon}
-                  <h3 className="ml-4 text-xl font-semibold text-gray-800">
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-gray-900">
                     {hotel.name}
                   </h3>
+                  <p className="text-sm text-gray-600">{hotel.category}</p>
                 </div>
-                <div className="space-y-3 text-gray-700">
-                  <p className="flex items-center">
-                    <MapPin className="mr-3 text-[#FF6B9E]" />
-                    {hotel.distance}
-                  </p>
-                  <p className="bg-[#9C6FDE]/10 text-[#9C6FDE] px-3 py-2 rounded-full inline-block">
-                    {hotel.specialOffer}
-                  </p>
+                <div className="border-t border-gray-200 pt-4">
+                  <div className="flex justify-between items-center text-gray-700 mb-3">
+                    <span className="font-medium">Single Occupancy:</span>
+                    <span className="font-semibold">{hotel.prices.single}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-gray-700 mb-3">
+                    <span className="font-medium">Double Occupancy:</span>
+                    <span className="font-semibold">{hotel.prices.double}</span>
+                  </div>
+                  {hotel.prices.triple && (
+                    <div className="flex justify-between items-center text-gray-700">
+                      <span className="font-medium">Triple Occupancy:</span>
+                      <span className="font-semibold">
+                        {hotel.prices.triple}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="mt-4">
+                  <button className="w-full bg-[#FF6B9E] text-white py-2 rounded-lg font-medium hover:bg-[#e05f8d] transition-colors duration-200">
+                    Book Now
+                  </button>
                 </div>
               </div>
             ))}
@@ -188,7 +216,10 @@ const VenueInformation = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#9C6FDE]/10 to-[#FF6B9E]/10 flex flex-col justify-center items-center p-8">
+    <div
+      className="min-h-screen bg-gradient-to-br from-[#9C6FDE]/10 to-[#FF6B9E]/10 flex flex-col justify-center items-center p-8"
+      id="Accomodation"
+    >
       <div className="container mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#9C6FDE] to-[#FF6B9E]">
           Venue & Travel Information

@@ -136,6 +136,28 @@ const HeroSection = () => {
                 "
               />
             </a>
+            <a
+              href="#Accomodation"
+              className="
+                border-2 border-[#9C6FDE] 
+                text-[#9C6FDE] 
+                px-8 py-4 rounded-full 
+                flex items-center 
+                hover:bg-[#9C6FDE]/10 
+                transition-all duration-300 
+                group
+              "
+            >
+              {" "}
+              Accomodation Details
+              <ArrowRight
+                className="
+                  ml-2 
+                  group-hover:translate-x-1 
+                  transition-transform
+                "
+              />
+            </a>
           </div>
         </div>
       </div>

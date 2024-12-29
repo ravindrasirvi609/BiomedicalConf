@@ -32,6 +32,11 @@ const Header = () => {
       label: "Schedule",
       icon: Clock,
     },
+    {
+      href: "contact",
+      label: "Contact",
+      icon: Clock,
+    },
   ];
 
   return (

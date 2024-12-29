@@ -29,6 +29,11 @@ const VenueInformation = () => {
             double: "₹ 9500*",
             triple: "₹ 11500**",
           },
+          links: {
+            single: "https://payments.cashfree.com/forms/gemso",
+            double: "https://payments.cashfree.com/forms/zemds",
+            triple: "https://payments.cashfree.com/forms/zemto",
+          },
         },
         {
           name: "Fortune Resort Sullivan Court",
@@ -38,6 +43,11 @@ const VenueInformation = () => {
             double: "₹ 9500*",
             triple: "₹ 11500**",
           },
+          links: {
+            single: "#", // Add the actual link if available
+            double: "#", // Add the actual link if available
+            triple: "#", // Add the actual link if available
+          },
         },
         {
           name: "The Monarch Hotel - Premier Rooms",
@@ -45,6 +55,10 @@ const VenueInformation = () => {
           prices: {
             single: "₹ 6499**",
             double: "₹ 6999*",
+          },
+          links: {
+            single: "#", // Add the actual link if available
+            double: "#", // Add the actual link if available
           },
         },
       ],
@@ -130,25 +144,39 @@ const VenueInformation = () => {
                 <div className="border-t border-gray-200 pt-4">
                   <div className="flex justify-between items-center text-gray-700 mb-3">
                     <span className="font-medium">Single Occupancy:</span>
-                    <span className="font-semibold">{hotel.prices.single}</span>
+                    <a
+                      href={hotel.links.single}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-[#FF6B9E] hover:underline"
+                    >
+                      {hotel.prices.single}
+                    </a>
                   </div>
                   <div className="flex justify-between items-center text-gray-700 mb-3">
                     <span className="font-medium">Double Occupancy:</span>
-                    <span className="font-semibold">{hotel.prices.double}</span>
+                    <a
+                      href={hotel.links.double}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-[#FF6B9E] hover:underline"
+                    >
+                      {hotel.prices.double}
+                    </a>
                   </div>
-                  {hotel.prices.triple && (
+                  {hotel.prices.triple && hotel.links.triple && (
                     <div className="flex justify-between items-center text-gray-700">
                       <span className="font-medium">Triple Occupancy:</span>
-                      <span className="font-semibold">
+                      <a
+                        href={hotel.links.triple}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-[#FF6B9E] hover:underline"
+                      >
                         {hotel.prices.triple}
-                      </span>
+                      </a>
                     </div>
                   )}
-                </div>
-                <div className="mt-4">
-                  <button className="w-full bg-[#FF6B9E] text-white py-2 rounded-lg font-medium hover:bg-[#e05f8d] transition-colors duration-200">
-                    Book Now
-                  </button>
                 </div>
               </div>
             ))}

@@ -10,29 +10,29 @@ import Image from "next/image";
 const SponsorsPartners = () => {
   const sponsors = [
     {
-      name: "MedTech Innovations",
-      logo: "/opff.png",
+      name: "Educational Partners",
+      logo: "/jss.png",
       tier: "Platinum",
-      description: "Leading medical technology solutions",
+      description: "Leading medical education institution",
       icon: <LucideStethoscope color="#9C6FDE" size={48} />,
     },
     {
       name: "HealthCare Dynamics",
-      logo: "/opff.png",
+      logo: "/jss.png",
       tier: "Gold",
       description: "Revolutionizing patient care platforms",
       icon: <LucideHospital color="#FF6B9E" size={48} />,
     },
     {
       name: "Global Medical Research",
-      logo: "/opff.png",
+      logo: "/jss.png",
       tier: "Silver",
       description: "Advancing medical research worldwide",
       icon: <LucideShieldCheck color="#9C6FDE" size={48} />,
     },
     {
       name: "Precision Healthcare",
-      logo: "/opff.png",
+      logo: "/jss.png",
       tier: "Bronze",
       description: "Innovative medical solutions",
       icon: <LucideHeartPulse color="#FF6B9E" size={48} />,

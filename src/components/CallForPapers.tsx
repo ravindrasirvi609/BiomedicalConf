@@ -138,9 +138,9 @@ const CallForPapers = () => {
   };
 
   const importantDates = [
-    { date: "January 31th, 2025", event: "Paper Submission Deadline" },
-    { date: "February 5, 2025", event: "Notification of Acceptance" },
-    { date: "January 31th, 2025", event: "Delegates Registrations" },
+    { date: "February 15, 2025", event: "Paper Submission Deadline" },
+    { date: "February 20, 2025", event: "Notification of Acceptance" },
+    { date: "February 15, 2025", event: "Delegates Registrations" },
   ];
 
   return (

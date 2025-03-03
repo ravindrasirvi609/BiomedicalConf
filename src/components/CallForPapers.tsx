@@ -140,7 +140,7 @@ const CallForPapers = () => {
   const importantDates = [
     { date: "February 15, 2025", event: "Paper Submission Deadline" },
     { date: "February 20, 2025", event: "Notification of Acceptance" },
-    { date: "February 15, 2025", event: "Delegates Registrations" },
+    { date: "Registration Open", event: "Delegates Registrations" },
   ];
 
   return (
